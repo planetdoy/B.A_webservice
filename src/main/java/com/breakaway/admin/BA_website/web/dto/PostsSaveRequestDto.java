@@ -2,7 +2,11 @@ package com.breakaway.admin.BA_website.web.dto;
 
 import com.breakaway.admin.BA_website.domain.posts.Posts;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@NoArgsConstructor
 public class PostsSaveRequestDto {
 
      private String title;
