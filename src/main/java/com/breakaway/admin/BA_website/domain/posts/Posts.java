@@ -1,5 +1,6 @@
 package com.breakaway.admin.BA_website.domain.posts;
 
+import com.breakaway.admin.BA_website.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     /*
         Entity
