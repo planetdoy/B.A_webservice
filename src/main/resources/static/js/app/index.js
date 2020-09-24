@@ -53,7 +53,7 @@ var main ={
         }).fail(function(){
             alert(JSON.stringify(error));
         });
-    }
+    },
 
     delete : function(){
 
