@@ -24,8 +24,8 @@ before_deploy:
 
 deploy:
   - provider: s3
-    access_key_id: AKIA5HZ4ZIAJC5CVZYN3 # AWS_ACCESS_KEY Travis repo setting
-    secret_access_key: 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 # AWS_SECRET_KEY Travis repo setting
+    access_key_id: AKIA5HZ4ZIAJAWFJCUHM # AWS_ACCESS_KEY Travis repo setting
+    secret_access_key: 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 # AWS_SECRET_KEY Travis repo setting
     bucket: breakaway-springboot-build # S3 버킷
     region: ap-northeast-2
     skip_cleanup: true
