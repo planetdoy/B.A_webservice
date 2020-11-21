@@ -6,9 +6,6 @@ branches:
   only:
     - master
 
-before_install:
-  - chmod +x gradlew
-
 # Travis CI 서버의 Home
 cache:
   directories:
@@ -16,33 +13,6 @@ cache:
     - '$HOME/.gradle'
 
 script: "./gradlew clean build"
-
-before_deploy:
-  - zip -r breakaway-webservice *
-  - mkdir -p deploy
-  - mv breakaway-webservice.zip deploy/breakaway-webservice.zip
-
-deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY # AWS_ACCESS_KEY Travis repo setting
-    secret_access_key: $AWS_SECRET_KEY # AWS_SECRET_KEY Travis repo setting
-    bucket: breakaway-springboot-build # S3 버킷
-    region: ap-northeast-2
-    skip_cleanup: true
-    acl: private # zip 파일 접근을 private으로
-    local_dir: deploy # before_deploy에서 생성한 디렉토리
-    wait-until-deployed: true
-
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정값
-    secret_access_key: $AWS_SECRET_KEY # Travis repo setting에 설정값
-    bucket: breakaway-springboot-build # S3 버킷
-    key: breakaway-springboot2-webservice.zip #빌드 파일을 압축해서 전달
-    bundle_type: zip # 압축 확장자
-    application: breakaway-springboot2-webservice # 웹 콘솔에서 등록한 CodeDeploy 애플리케이션
-    deployment_group: breakaway-springboot2-webservice-group # 웹콘솔에서 등록한 CodeDeploy 배포 그룹
-    region: ap-northeast-2
-    wait-until-deployed: true
 
 # CI 실행 완료 시 메일로 알람
 notifications:
