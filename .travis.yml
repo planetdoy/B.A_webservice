@@ -18,9 +18,9 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r breakaway-webservice *
+  - zip -r breakaway-webservice1231 *
   - mkdir -p deploy
-  - mv breakaway-webservice.zip deploy/breakaway-webservice.zip
+  - mv breakaway-webservice1231.zip deploy/breakaway-webservice1231.zip
 
 deploy:
   - provider: s3
